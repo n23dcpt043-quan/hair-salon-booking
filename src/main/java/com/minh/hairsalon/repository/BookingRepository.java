@@ -22,4 +22,8 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
             @Param("stylist") String stylistName,
             @Param("status") String status
     );
+
+    // 👇 THÊM DÒNG NÀY
+    List<Booking> findByCustomerName(String customerName);
 }
+

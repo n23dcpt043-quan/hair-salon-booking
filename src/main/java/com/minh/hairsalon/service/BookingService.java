@@ -9,4 +9,6 @@ public interface BookingService {
 
     void updateStatus(Long bookingId, String status);
 
+    List<BookingAdminDTO> getByCustomer(String customerName);
+
 }

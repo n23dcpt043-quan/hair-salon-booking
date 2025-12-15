@@ -53,4 +53,22 @@ public class BookingServiceImpl implements BookingService {
         booking.setStatus(bookingStatus.name());
         bookingRepository.save(booking);
     }
+
+    @Override
+    public List<BookingAdminDTO> getByCustomer(String customerName) {
+
+        List<Booking> list = bookingRepository.findByCustomerName(customerName);
+
+        return list.stream()
+                .map(b -> new BookingAdminDTO(
+                        b.getId(),
+                        b.getCustomerName(),
+                        b.getServiceName(),
+                        b.getStylistName(),
+                        null,
+                        null,
+                        b.getStatus()
+                ))
+                .toList();
+    }
 }
