@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/admin/bookings")
+@CrossOrigin(origins = "*")
 public class AdminBookingController {
 
     private final BookingService bookingService;
